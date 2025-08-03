@@ -3,7 +3,7 @@
 #include "../include/utils.hpp"
 #include "../include/user_account_managing.hpp"
 #include "../include/vault.hpp"
-
+#include "../include/encryption.hpp"
 namespace User{
 
     void parseUserInput(KeyDerivation& kdf,std::string input,User::LoggedInStatus& session){
@@ -32,7 +32,12 @@ namespace User{
         std::cout <<"\nUsername: ";
         account.username = utils::input_word();
         std::cout <<"\nPassword: ";
+        std::string password = utils::input_word();
+        account.encrypted_password = Encryption::encryptPassword(kdf,password);
+        std::cout <<"\nEncrypted: "<<account.encrypted_password <<"\nDecrypted: "<<Encryption::decryptPassword(kdf,Encryption::encryptPassword(kdf,password));
         std::cout <<"\nNotes: ";
+        account.notes = utils::input_word();
+        Vault::saveAccountToFile(account);
     }
     void userInput_deleteAccount(KeyDerivation& kdf){
         std::cout <<"delete\n";

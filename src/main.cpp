@@ -7,7 +7,7 @@
 #include "../include/user_account_managing.hpp"
 //compile: g++ -std=c++17 main.cpp login.cpp utils.cpp -o password_manager -largon2
 //  g++ -std=c++17 main.cpp login.cpp utils.cpp key_derivation.cpp -o password_manager -largon2
-//g++ -std=c++17 main.cpp login.cpp utils.cpp key_derivation.cpp user_account_managing.cpp vault.cpp -o password_manager -largon2
+//g++ -std=c++17 main.cpp login.cpp utils.cpp key_derivation.cpp user_account_managing.cpp vault.cpp encryption.cpp -o password_manager -largon2 -lcryptopp
 using namespace std;
 
 int main(){
