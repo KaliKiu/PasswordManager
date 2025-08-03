@@ -35,16 +35,17 @@ KeyDerivation log(){
             string saved_hash = json.at("hash");
             
             //hash input password
-            Argon2Config config_arg2 = load_config(ARGON2_CONFIG_FILE);
+            
             std::string password = utils::input_word();
-            string login_hash = utils::bytes_to_hex(hash_password(password,utils::hex_to_bytes(saved_salt),config_arg2));
+            string login_hash = utils::bytes_to_hex(hash_password(password,utils::hex_to_bytes(saved_salt)));
             //cout <<"Login_hash: "<<login_hash <<"\n" <<"Saved_hash: " <<saved_hash <<"\n";
             
             //compare
             if(saved_hash==login_hash){
                 cout <<utils::CLEAR;
                 //generate KD with kdf
-                kdf.kdfGen(password,config_arg2,json);
+                Argon2Config config_arg2 = load_config(ARGON2_CONFIG_FILE);
+                kdf.kdfGen(password,json);
                 return kdf;
             }else{
                 cout <<utils::CLEAR <<"Password wrong! Try again\n";
@@ -54,14 +55,13 @@ KeyDerivation log(){
             //register
             cout <<"Register: ";
 
-            Argon2Config config_arg2 = load_config(ARGON2_CONFIG_FILE);
             //generate salt for password
-            vector<uint8_t> salt = utils::generate_salt(config_arg2.salt_len);
+            vector<uint8_t> salt = utils::generate_salt(load_config(ARGON2_CONFIG_FILE).salt_len);
             //generate unique salt for KD
             kdf.kdfGenerateSalt(128,"salt_KDF",MASTER_HASH_FILE);
             //hash password and safe hash+salt
             std::string password= utils::input_word();
-            vector<uint8_t> hash = hash_password(password,salt,config_arg2);
+            vector<uint8_t> hash = hash_password(password,salt);
             utils::storeJsonValueInFile(utils::bytes_to_hex(hash),"hash",MASTER_HASH_FILE);
             utils::storeJsonValueInFile(utils::bytes_to_hex(salt),"salt",MASTER_HASH_FILE);
             cout <<utils::CLEAR<<"\nRegistered!\n";
@@ -88,8 +88,8 @@ Login::Argon2Config load_config(const std::string& path){
     };
 }
     //password hash function
-vector<uint8_t> hash_password(std::string& password,vector<uint8_t> salt, Argon2Config config_arg2){
-    
+vector<uint8_t> hash_password(std::string& password,vector<uint8_t> salt){
+    Argon2Config config_arg2 = load_config(ARGON2_CONFIG_FILE);
     vector<uint8_t> hash(config_arg2.hash_len);
 
     int result = argon2id_hash_raw(

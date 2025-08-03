@@ -69,4 +69,10 @@ namespace utils{
         file_out <<json.dump(4);
         file_out.close();
     }
+    std::string getJsonValueFromFile(std::string index,const std::string path){
+        std::ifstream file(path);
+        nlohmann::json json;
+        file >> json;
+        return json[index];
+    }
 }

@@ -40,10 +40,16 @@ namespace User{
         Vault::saveAccountToFile(account);
     }
     void userInput_deleteAccount(KeyDerivation& kdf){
-        std::cout <<"delete\n";
+        //work in progress
+        Vault::Account account;
+        std::cout <<"Input website ID: \n";
+        account.id = utils::input_word();
     }
     void userInput_logout(KeyDerivation& kdf){
         kdf.resetDerivedKey();
     }
-
+    bool userAuthentification(){
+        std::cout <<"Enter password:\n";
+        return true;
+    }
 }
