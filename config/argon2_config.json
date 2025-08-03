@@ -1,0 +1,8 @@
+{
+    "t_cost": 3,
+    "m_cost": 65536,
+    "parallelism": 1,
+    "hash_length": 32,
+    "salt_length": 16
+  }
+  
