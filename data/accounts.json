@@ -1,16 +1,5 @@
 {
     "Accounts": [
-        {
-            "encrypted_password": "76615FE6ACC722A952D1EAE7C3A78087",
-            "id": "google",
-            "notes": "This",
-            "username": "Kali"
-        },
-        {
-            "encrypted_password": "819C720A66CC57651162163C4C4160CF",
-            "id": "netflix",
-            "notes": "Cool",
-            "username": "Papa"
-        }
+        
     ]
 }
