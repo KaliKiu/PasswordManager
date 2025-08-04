@@ -13,7 +13,8 @@ namespace User{
             {"add",User::userInput_addAccount},
             {"delete",User::userInput_deleteAccount},
             {"list",Vault::listAccounts},
-            {"logout",User::userInput_logout}
+            {"logout",User::userInput_logout},
+            {"getacc",User::userInput_getAccount}
         };
         if(commandMap.find(input) !=commandMap.end()){
             commandMap[input](kdf);
@@ -49,8 +50,10 @@ namespace User{
     void userInput_logout(KeyDerivation& kdf){
         kdf.resetDerivedKey();
     }
-    bool userAuthentification(){
-        std::cout <<"Enter password:\n";
-        return true;
+    void userInput_getAccount(KeyDerivation& kdf){
+        Vault::Account account;
+        std::cout <<"Input website ID: \n";
+        account.id = utils::input_word();
+        Vault::getAccount(kdf,account);
     }
 }

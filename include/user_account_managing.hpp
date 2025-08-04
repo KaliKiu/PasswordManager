@@ -15,5 +15,6 @@ namespace User{
     void userInput_addAccount(KeyDerivation& kdf);
     void userInput_deleteAccount(KeyDerivation& kdf);
     void userInput_logout(KeyDerivation& kdf);
+    void userInput_getAccount(KeyDerivation& kdf);
 }
 #endif

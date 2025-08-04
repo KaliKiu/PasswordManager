@@ -15,6 +15,8 @@ namespace Vault{
     void listAccounts(KeyDerivation& kdf);
     void saveAccountToFile(Account& account);
     void deleteAccountInFile(Account& account);
+    void getAccount(KeyDerivation& kdf,Account& account);
+    bool verifyMasterPassword();
 };
-
+/*can you code a function that will getAccount(keyderivation& kdf), will get the full account with password with a specific ID. Dont forget to use the doesIDexist function from before. decrypt password after requesting master password*/
 #endif

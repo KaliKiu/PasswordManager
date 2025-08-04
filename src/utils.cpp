@@ -20,7 +20,7 @@ namespace utils{
     std::string input_word(){
         std::string input;
         while(input.empty()){
-            std::cin >>input;
+            std::getline(std::cin,input);
         }
         return input;
     }

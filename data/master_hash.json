@@ -1,5 +1,5 @@
 {
-    "hash": "6e6d3071c30b0007717d1fcc44e0bb4fd7c623b694b6c50f222f13bcf8cf2764",
-    "salt": "59cbb290012e2be7c2cf338e19977d6d",
-    "salt_KDF": "1021abb04e2ada371f7b579af522646075a9f0c0e3c78aec28a817c13e702d4eebe9e01f6013788f1b1100f7cb380e1690ddd0c582b2a5451930ebae280c842e7d40fa75da2165fcd1075560886c4a4cf00ea8b3c38e7ffe088da3527779fc753665f5afcc8d135c35bd0beaec9d3be48a62cd1d4ed9e96ae06a7cd25aa9a2c0"
+    "hash": "",
+    "salt": "",
+    "salt_KDF": ""
 }
