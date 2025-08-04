@@ -14,6 +14,7 @@ namespace Vault{
     void editAccout();*/
     void listAccounts(KeyDerivation& kdf);
     void saveAccountToFile(Account& account);
+    void deleteAccountInFile(Account& account);
 };
 
 #endif

@@ -11,8 +11,9 @@ namespace utils{
     std::string input_word();
     std::vector<uint8_t> generate_salt(std::size_t length);
     std::string bytes_to_hex(const std::vector<uint8_t>& data);
-    std::vector<uint8_t> hex_to_bytes(std::string& hex);
+    std::vector<uint8_t> hex_to_bytes(std::string hex);
     void storeJsonValueInFile(std::string value, const std::string index, const std::string path);
-    
+    std::string getJsonValueFromFile(std::string index,const std::string path);
+    bool isIdUnique(nlohmann::json& data, std::string idToCheck);
 }
 #endif
