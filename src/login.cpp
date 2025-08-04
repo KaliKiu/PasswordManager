@@ -8,8 +8,7 @@
 #include "../include/login.hpp"
 #include "../include/key_derivation.hpp"
 
-const std::string ARGON2_CONFIG_FILE = "../config/argon2_config.json";
-const std::string MASTER_HASH_FILE = "../data/master_hash.json";
+
 
 //master login, for accessing his passwords
 //run : g++ your_code.cpp -I/usr/local/include -L/usr/local/lib -largon2 -o your_program

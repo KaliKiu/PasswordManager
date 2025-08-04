@@ -44,6 +44,7 @@ namespace User{
         Vault::Account account;
         std::cout <<"Input website ID: \n";
         account.id = utils::input_word();
+        Vault::deleteAccountInFile(account);
     }
     void userInput_logout(KeyDerivation& kdf){
         kdf.resetDerivedKey();

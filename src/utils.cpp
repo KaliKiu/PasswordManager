@@ -44,7 +44,7 @@ namespace utils{
     }
 
         //hex to bytes function
-    std::vector<uint8_t> hex_to_bytes(std::string& hex) {
+    std::vector<uint8_t> hex_to_bytes(std::string hex) {
         if (hex.length() % 2 != 0) {
             throw std::invalid_argument("Hex string length must be even.");
         }
@@ -75,4 +75,16 @@ namespace utils{
         file >> json;
         return json[index];
     }
+    bool isIdUnique(nlohmann::json& data, std::string idToCheck) {
+    if (!data.contains("Accounts") || !data["Accounts"].is_array()) {
+        return true; // No accounts means the ID is unique
+    }
+
+    for (const auto& account : data["Accounts"]) {
+        if (account.contains("id") && account["id"] == idToCheck) {
+            return false; // ID already exists
+        }
+    }
+    return true; // ID is unique
+}
 }
